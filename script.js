@@ -78,6 +78,8 @@ function nextQuestion() {
 }
 
 function checkAns() {
+  window.Telegram.WebApp.PopupButton();
+
   const selectedAns = parseInt(
     document.querySelector('input[name="answer"]:checked').value
   );

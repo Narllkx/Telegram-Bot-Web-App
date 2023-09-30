@@ -9,17 +9,18 @@
   </head>
   <body id="body">
     <h1 id="title" class="title">Ответы на вопросы!</h1>
+    <p class="info">Для успешного прохождения необхлдимо набрать 70+%</p>
     <button id="start" class="button" onclick="addClass()">Начать</button>
 
-    <span id="timer">Timer</span>
-    <div class="constainer">
+    <div class="container" id="cont">
       <h2 id="quiz" class="quiz">Вопрос</h2>
       <div class="options" id="opt"></div>
-      <button onclick="checkAns()" id="submit">Ответить</button>
-      <span id="question-number"></span>
+      <div class="button-container">
+        <button onclick="checkAns()" id="submit">Ответить</button>
+      </div>
+      <span id="timer"></span>
+      <div id="score"></div>
     </div>
-    <div id="score"></div>
-
     <script src="scripts/questions.js"></script>
     <script src="scripts/script.js"></script>
   </body>

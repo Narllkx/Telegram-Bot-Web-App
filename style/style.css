@@ -1,3 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
 
+body {
+  display: block;
+  position: relative;
+  max-width: 768px;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 10px; }
+  body .container {
+    opacity: 0;
+    visibility: hidden;
+    transition: 1s;
+    left: -10%;
+    position: relative; }
+    body .container .quiz {
+      margin-bottom: 15px; }
+    body .container .options {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 100%;
+      margin-bottom: 15px; }
+      body .container .options label {
+        margin-right: 15px; }
+    body .container #timer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -40px; }
+  body button {
+    padding: 10px 25px;
+    background-color: palegoldenrod;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 10px; }
+  body .title {
+    font-size: 30px;
+    margin-bottom: 15px; }
+  body .info {
+    margin-bottom: 15px; }
+  body.start .container {
+    opacity: 1;
+    visibility: visible;
+    left: 0; }
+  body.start #start,
+  body.start .title,
+  body.start .info {
+    display: none; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,21 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style/style.css" />
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <title>Test</title>
+    <title>Test on Java Script</title>
   </head>
-  <body>
-    <div class="panel">
-      <h1>Ответы на вопросы! (Тесты)</h1>
-      <div class="question" id="ques"></div>
+  <body id="body">
+    <h1 id="title" class="title">Ответы на вопросы!</h1>
+    <button id="start" class="button" onclick="addClass()">Начать</button>
+
+    <span id="timer">Timer</span>
+    <div class="constainer">
+      <h2 id="quiz" class="quiz">Вопрос</h2>
       <div class="options" id="opt"></div>
-      <button onclick="checkAns()" id="btn">SUBMIT</button>
-      <div id="score"></div>
-      <div id="list-number"></div>
+      <button onclick="checkAns()" id="submit">Ответить</button>
+      <span id="question-number"></span>
     </div>
-    <script src="script.js"></script>
+    <div id="score"></div>
+
+    <script src="scripts/questions.js"></script>
+    <script src="scripts/script.js"></script>
   </body>
 </html>

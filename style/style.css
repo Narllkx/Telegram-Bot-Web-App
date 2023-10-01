@@ -9,7 +9,9 @@ body {
   max-width: 768px;
   text-align: center;
   margin: 0 auto;
-  padding-top: 10px; }
+  padding-top: 10px;
+  background: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color); }
   body .container {
     opacity: 0;
     visibility: hidden;

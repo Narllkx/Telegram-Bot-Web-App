@@ -74,7 +74,9 @@ function loadScore() {
   const totalScore = document.getElementById("score");
   const scorePerCent = Math.round((100 * score) / Questions.length);
 
-  tg.sendData(JSON.stringify({ score: scorePerCent }));
+  tg.sendData(JSON.stringify({ score: 1 }));
+
+  tg.close();
 }
 
 function checkAns() {

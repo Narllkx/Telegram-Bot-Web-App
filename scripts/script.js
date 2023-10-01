@@ -71,15 +71,10 @@ function loadScore() {
   document.getElementById("submit").remove();
   document.getElementById("submit-loadscore").remove();
 
-  tg.close();
-
   const totalScore = document.getElementById("score");
   const scorePerCent = Math.round((100 * score) / Questions.length);
 
-  const data = {
-    score: scorePerCent,
-  };
-  tg.sendData(JSON.stringify(data));
+  tg.sendData(JSON.stringify({ score: scorePerCent }));
 }
 
 function checkAns() {

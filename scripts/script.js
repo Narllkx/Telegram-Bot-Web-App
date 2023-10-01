@@ -4,8 +4,10 @@ const question = document.getElementById("quiz");
 const opt = document.getElementById("opt");
 const cont = document.getElementById("cont");
 
+const tg = window.Telegram.WebApp;
+
 // на сколько секундах ставим таймер
-const timer = 99999999999;
+const timer = 5;
 // запущен таймер или нет
 started = false;
 
@@ -79,6 +81,8 @@ function loadScore() {
   }
 }
 
+tg.close();
+
 function checkAns() {
   const selectedAns = parseInt(
     document.querySelector('input[name="answer"]:checked').value
@@ -130,10 +134,14 @@ function startTimer() {
       // останавливаем отсчёт
       clearInterval(countdown);
       // пишем текст вместо цифр
-      document.getElementById("timer").innerHTML = "Увы но тест не пройден :(";
+      const time = document.getElementById("timer");
+      time.innerHTML = "Увы но тест не пройден :(";
+      time.classList.add("active");
       document.getElementById("opt").remove();
       document.getElementById("quiz").remove();
       document.getElementById("submit").remove();
+      document.getElementById("submit-loadscore").remove();
+      tg.close();
     }
   });
   // помечаем, что таймер уже запущен

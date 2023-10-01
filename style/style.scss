@@ -5,6 +5,7 @@
 }
 
 body {
+  font-family: "Roboto", sans-serif;
   display: block;
   position: relative;
   max-width: 768px;
@@ -13,6 +14,8 @@ body {
   padding-top: 10px;
   background: var(--tg-theme-bg-color);
   color: var(--tg-theme-text-color);
+  transform: translateY(30%);
+
   .container {
     opacity: 0;
     visibility: hidden;
@@ -23,14 +26,21 @@ body {
       margin-bottom: 15px;
     }
     .options {
-      display: inline-flex;
+      display: grid;
       justify-content: center;
       align-items: center;
-      flex-wrap: wrap;
       max-width: 100%;
-      margin-bottom: 15px;
       label {
-        margin-right: 15px;
+        padding-top: 5px;
+        min-width: 100px;
+        height: 30px;
+        text-align: left;
+        background: #d7d7d7;
+        margin-bottom: 10px;
+        border-radius: 10px;
+      }
+      input {
+        margin: 0 10px;
       }
     }
     #timer {
@@ -38,6 +48,15 @@ body {
       left: 0;
       right: 0;
       bottom: -40px;
+      margin: 0 auto;
+      max-width: 80px;
+      border-radius: 50px;
+      background: #e5e5e5;
+      &.active {
+        padding: 15px;
+        max-width: 250px;
+        background: #fa8e8e;
+      }
     }
   }
   button {
@@ -55,7 +74,6 @@ body {
   .info {
     margin-bottom: 15px;
   }
-
   &.start {
     .container {
       opacity: 1;

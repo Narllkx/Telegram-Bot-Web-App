@@ -76,15 +76,10 @@ function loadScore() {
   const totalScore = document.getElementById("score");
   const scorePerCent = Math.round((100 * score) / Questions.length);
 
-  let data = {
+  const data = {
     score: scorePerCent,
   };
-
-  if (scorePerCent >= 70) {
-    tg.sendData(JSON.stringify(data));
-  } else {
-    tg.sendData(JSON.stringify(data));
-  }
+  tg.sendData(JSON.stringify(data));
 }
 
 function checkAns() {

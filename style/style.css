@@ -34,7 +34,8 @@ body {
         text-align: left;
         background: #d7d7d7;
         margin-bottom: 10px;
-        border-radius: 10px; }
+        border-radius: 10px;
+        padding-right: 10px; }
       body .container .options input {
         margin: 0 10px; }
     body .container #timer {

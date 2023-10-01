@@ -1,38 +1,46 @@
 const Questions = [
   {
-    question: "Я бот 1",
+    question: "Какого цвета небо?",
     answers: [
-      { text: "Нет", isCorrect: false },
-      { text: "Да", isCorrect: true },
+      { text: "Красного", isCorrect: false },
+      { text: "Голубого", isCorrect: true },
+      { text: "Жёлтого", isCorrect: false },
+      { text: "Зелёного", isCorrect: false },
     ],
     id: 0,
   },
   {
-    question: "Я бот 2",
+    question: "Сколько будет 1 + 1?",
     answers: [
-      { text: "Нет", isCorrect: false },
-      { text: "Да", isCorrect: true },
+      { text: "0", isCorrect: false },
+      { text: "5", isCorrect: false },
+      { text: "2", isCorrect: true },
+      { text: "10", isCorrect: false },
     ],
     id: 1,
   },
   {
-    question: "Я бот 3",
+    question: "Когда закончилась 2 мировая война?",
     answers: [
-      { text: "Нет", isCorrect: false },
-      { text: "Да", isCorrect: true },
+      { text: "1990", isCorrect: false },
+      { text: "1850", isCorrect: false },
+      { text: "2000", isCorrect: false },
+      { text: "1945", isCorrect: true },
     ],
     id: 2,
   },
   {
-    question: "Я бот 4",
+    question: "Сколько ног у человка?",
     answers: [
-      { text: "Нет", isCorrect: false },
-      { text: "Да", isCorrect: true },
+      { text: "1", isCorrect: false },
+      { text: "2", isCorrect: true },
+      { text: "5", isCorrect: false },
+      { text: "Нету", isCorrect: false },
     ],
     id: 3,
   },
   {
-    question: "Я бот 5",
+    question: "HTML это язык программирования?",
     answers: [
       { text: "Нет", isCorrect: false },
       { text: "Да", isCorrect: true },
@@ -40,10 +48,10 @@ const Questions = [
     id: 4,
   },
   {
-    question: "Я бот 6",
+    question: "Я телеграм бот?",
     answers: [
-      { text: "Нет", isCorrect: false },
       { text: "Да", isCorrect: true },
+      { text: "Нет", isCorrect: false },
     ],
     id: 5,
   },

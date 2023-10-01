@@ -4,10 +4,8 @@ const question = document.getElementById("quiz");
 const opt = document.getElementById("opt");
 const cont = document.getElementById("cont");
 
-const tg = window.Telegram.WebApp;
-
 // на сколько секундах ставим таймер
-const timer = 120;
+const timer = 60;
 // запущен таймер или нет
 started = false;
 
@@ -26,7 +24,6 @@ function loadQues() {
 
   if (resolvedQuestion.length == Questions.length) {
     loadScore();
-    return true;
   }
   if (copyOrNot == true) {
     loadQues();
@@ -70,13 +67,18 @@ function loadScore() {
   document.getElementById("quiz").remove();
   document.getElementById("submit").remove();
   document.getElementById("submit-loadscore").remove();
+  document.getElementById("timer").remove();
+
+  startTimer(false);
 
   const totalScore = document.getElementById("score");
   const scorePerCent = Math.round((100 * score) / Questions.length);
 
-  tg.sendData(JSON.stringify({ score: 1 }));
-
-  tg.close();
+  if (scorePerCent >= 70) {
+    totalScore.innerHTML = `Вы успешно прошли тест! <br> Тест пройден на ${scorePerCent}%`;
+  } else {
+    totalScore.innerHTML = `Увы но вы не прошли тест :(  <br> Тест пройден на ${scorePerCent}%`;
+  }
 }
 
 function checkAns() {
@@ -108,34 +110,40 @@ function startTimer() {
     return;
   }
   // запоминаем время нажатия
-  var start_time = new Date();
+  let start_time = new Date();
   // получаем время окончания таймера
-  var stop_time = start_time.setSeconds(start_time.getSeconds() + timer);
+  let stop_time = start_time.setSeconds(start_time.getSeconds() + timer);
 
   // запускаем ежесекундный отсчёт
-  var countdown = setInterval(function () {
+  const countdown = setInterval(function () {
     // текущее время
-    var now = new Date().getTime();
+    const now = new Date().getTime();
     // сколько времени осталось до конца таймера
-    var remain = stop_time - now;
+    const remain = stop_time - now;
     // переводим миллисекунды в минуты и секунды
-    var min = Math.floor((remain % (1000 * 60 * 60)) / (1000 * 60));
-    var sec = Math.floor((remain % (1000 * 60)) / 1000);
+    const min = Math.floor((remain % (1000 * 60 * 60)) / (1000 * 60));
+    let sec = Math.floor((remain % (1000 * 60)) / 1000);
     // если значение текущей секунды меньше 10, добавляем вначале ведущий ноль
     sec = sec < 10 ? "0" + sec : sec;
     // отправляем значение таймера на страницу в нужный раздел
-    document.getElementById("timer").innerHTML = min + ":" + sec;
+    if (document.getElementById("timer") == undefined) {
+      started = false;
+    } else {
+      document.getElementById("timer").innerHTML = min + ":" + sec;
+    }
     // если время вышло
     if (remain < 0) {
       // останавливаем отсчёт
       clearInterval(countdown);
       // пишем текст вместо цифр
-      document.getElementById("timer").remove();
+      time = document.getElementById("timer");
+
+      time.innerHTML = "Увы но тест не пройден :(";
+      time.classList.add("active");
       document.getElementById("opt").remove();
       document.getElementById("quiz").remove();
       document.getElementById("submit").remove();
       document.getElementById("submit-loadscore").remove();
-      tg.close();
     }
   });
   // помечаем, что таймер уже запущен

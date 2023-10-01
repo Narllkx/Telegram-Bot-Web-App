@@ -7,7 +7,7 @@ const cont = document.getElementById("cont");
 const tg = window.Telegram.WebApp;
 
 // на сколько секундах ставим таймер
-const timer = 5;
+const timer = 120;
 // запущен таймер или нет
 started = false;
 
@@ -76,10 +76,17 @@ function loadScore() {
   const totalScore = document.getElementById("score");
   const scorePerCent = Math.round((100 * score) / Questions.length);
 
+  let data = {
+    boolean: bool,
+    score: scorePerCent,
+  };
+
   if (scorePerCent >= 70) {
-    totalScore.innerHTML = `Вы успешно прошли тест! <br> Тест пройден на ${scorePerCent}%`;
+    bool = true;
+    tg.sendData(JSON.stringify(data));
   } else {
-    totalScore.innerHTML = `Увы но вы не прошли тест :(  <br> Тест пройден на ${scorePerCent}%`;
+    bool = false;
+    tg.sendData(JSON.stringify(data));
   }
 }
 
@@ -134,9 +141,7 @@ function startTimer() {
       // останавливаем отсчёт
       clearInterval(countdown);
       // пишем текст вместо цифр
-      const time = document.getElementById("timer");
-      time.innerHTML = "Увы но тест не пройден :(";
-      time.classList.add("active");
+      document.getElementById("timer").remove();
       document.getElementById("opt").remove();
       document.getElementById("quiz").remove();
       document.getElementById("submit").remove();

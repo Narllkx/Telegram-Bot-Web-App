@@ -1,5 +1,5 @@
 // на сколько секундах ставим таймер
-const timer = 6000;
+const timer = 5;
 
 // запущен таймер или нет
 started = false;
@@ -27,9 +27,6 @@ function loadQues() {
 
   // Oбнуление inputs
   document.getElementById("opt").innerHTML = "";
-
-  // Включение таймера
-  startTimer();
 
   // Проверка кол-во вопросов
   if (resolvedQuestion.length == Questions.length) {
@@ -72,6 +69,8 @@ function addClass() {
     const body = document.getElementById("body");
     body.classList.add("start");
     loadQues();
+    // Включение таймера
+    startTimer();
   }
 }
 
@@ -201,7 +200,11 @@ function startTimer() {
       time.classList.add("active");
       document.getElementById("opt").remove();
       document.getElementById("quiz").remove();
-      document.getElementById("submit").remove();
+      try {
+        document.getElementById("submit").remove();
+      } catch {
+        document.getElementById("training-submit").remove();
+      }
       document.getElementById("submit-loadscore").remove();
     }
   });

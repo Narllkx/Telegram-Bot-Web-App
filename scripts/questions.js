@@ -42,8 +42,8 @@ const Questions = [
   {
     question: "HTML это язык программирования?",
     answers: [
-      { text: "Нет", isCorrect: false },
-      { text: "Да", isCorrect: true },
+      { text: "Нет", isCorrect: true },
+      { text: "Да", isCorrect: false },
     ],
     id: 4,
   },

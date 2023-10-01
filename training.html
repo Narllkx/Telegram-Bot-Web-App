@@ -1,32 +1,30 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style/style.css" />
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <title>Exam</title>
+    <title>Traning</title>
   </head>
-  <body id="body">
-    <h1 id="title" class="title">Тесты</h1>
-    <p class="info">
-      Для успешного прохождения необходимо набрать выше 70% <br />
-      <br />
-      Чтобы начать тест нажмите на кнопку ниже.
-    </p>
+  <body id="training-body">
+    <h1 id="title" class="title">Тренировка</h1>
+    <p class="info">Чтобы начать тренировку нажмите на кнопку ниже.</p>
     <button id="start" class="button" onclick="addClass()">Начать</button>
 
     <div class="container" id="cont">
       <h2 id="quiz" class="quiz">Вопрос</h2>
       <div class="options" id="opt"></div>
       <div class="button-container">
-        <button onclick="checkAns()" id="submit">Ответить</button>
+        <button onclick="checkAnsTraining()" id="training-submit">
+          Ответить
+        </button>
         <button onclick="loadScore()" id="submit-loadscore">
           Посмотреть результат
         </button>
       </div>
       <span id="timer"></span>
-      <div id="score"></div>
+      <div id="training-score"></div>
     </div>
     <script src="scripts/questions.js"></script>
     <script src="scripts/script.js"></script>

@@ -77,15 +77,12 @@ function loadScore() {
   const scorePerCent = Math.round((100 * score) / Questions.length);
 
   let data = {
-    boolean: bool,
     score: scorePerCent,
   };
 
   if (scorePerCent >= 70) {
-    bool = true;
     tg.sendData(JSON.stringify(data));
   } else {
-    bool = false;
     tg.sendData(JSON.stringify(data));
   }
 }

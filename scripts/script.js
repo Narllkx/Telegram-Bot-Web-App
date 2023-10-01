@@ -71,6 +71,8 @@ function loadScore() {
   document.getElementById("submit").remove();
   document.getElementById("submit-loadscore").remove();
 
+  tg.close();
+
   const totalScore = document.getElementById("score");
   const scorePerCent = Math.round((100 * score) / Questions.length);
 
@@ -80,8 +82,6 @@ function loadScore() {
     totalScore.innerHTML = `Увы но вы не прошли тест :(  <br> Тест пройден на ${scorePerCent}%`;
   }
 }
-
-tg.close();
 
 function checkAns() {
   const selectedAns = parseInt(

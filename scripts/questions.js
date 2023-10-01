@@ -1,6 +1,6 @@
 const Questions = [
   {
-    question: "Я телеграм бот?",
+    question: "Я бот 1",
     answers: [
       { text: "Нет", isCorrect: false },
       { text: "Да", isCorrect: true },
@@ -8,20 +8,43 @@ const Questions = [
     id: 0,
   },
   {
-    question: "1 это",
+    question: "Я бот 2",
     answers: [
-      { text: "Число", isCorrect: false },
-      { text: "Цифра", isCorrect: true },
+      { text: "Нет", isCorrect: false },
+      { text: "Да", isCorrect: true },
     ],
     id: 1,
   },
   {
-    question: "Какой формы земля?",
+    question: "Я бот 3",
     answers: [
-      { text: "Круглой", isCorrect: true },
-      { text: "Квадратной", isCorrect: false },
-      { text: "Плоской", isCorrect: false },
+      { text: "Нет", isCorrect: false },
+      { text: "Да", isCorrect: true },
     ],
     id: 2,
+  },
+  {
+    question: "Я бот 4",
+    answers: [
+      { text: "Нет", isCorrect: false },
+      { text: "Да", isCorrect: true },
+    ],
+    id: 3,
+  },
+  {
+    question: "Я бот 5",
+    answers: [
+      { text: "Нет", isCorrect: false },
+      { text: "Да", isCorrect: true },
+    ],
+    id: 4,
+  },
+  {
+    question: "Я бот 6",
+    answers: [
+      { text: "Нет", isCorrect: false },
+      { text: "Да", isCorrect: true },
+    ],
+    id: 5,
   },
 ];

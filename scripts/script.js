@@ -20,11 +20,21 @@ function loadQues() {
   const randomNumber = Math.floor(Math.random() * Questions.length);
   // Поиск рандомного числа в Объетке по ID
   const findQuestions = Questions.find((elem) => elem.id === randomNumber);
+  const copyOrNot = resolvedQuestion.includes(findQuestions.id);
 
-  findQuest.push(findQuestions);
+  if (resolvedQuestion.length == Questions.length) {
+    loadScore();
+    return true;
+  }
+  if (copyOrNot == true) {
+    loadQues();
+  }
+  if (copyOrNot == false) {
+    findQuest.push(findQuestions);
+    question.textContent = findQuestions.question;
+  }
 
   // Вывод вопроса и обнуление inputs
-  question.textContent = findQuestions.question;
   opt.innerHTML = "";
 
   startTimer();
@@ -57,6 +67,7 @@ function loadScore() {
   document.getElementById("opt").remove();
   document.getElementById("quiz").remove();
   document.getElementById("submit").remove();
+  document.getElementById("submit-loadscore").remove();
 
   const totalScore = document.getElementById("score");
   const scorePerCent = Math.round((100 * score) / Questions.length);
@@ -68,25 +79,25 @@ function loadScore() {
   }
 }
 
+function checkAns() {
+  const selectedAns = parseInt(
+    document.querySelector('input[name="answer"]:checked').value
+  );
+  if (findQuest[0].answers[selectedAns].isCorrect) {
+    score++;
+    nextQuestion();
+  } else {
+    nextQuestion();
+  }
+}
+
 function nextQuestion() {
-  if (resolvedQuestion < Questions.length - 1) {
+  if (resolvedQuestion.length <= Questions.length) {
     resolvedQuestion.push(findQuest[0].id);
     findQuest.pop();
     return loadQues();
   } else {
     loadScore();
-  }
-}
-
-function checkAns() {
-  const selectedAns = parseInt(
-    document.querySelector('input[name="answer"]:checked').value
-  );
-  if (Questions[findQuest[0].answers[selectedAns].isCorrect]) {
-    score++;
-    nextQuestion();
-  } else {
-    nextQuestion();
   }
 }
 
